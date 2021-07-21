@@ -1,0 +1,7 @@
+%div{ :class => "col-3 mt-5 m-auto" }
+	
+	%div{ :class => "d-flex justify-content-end mb-4" }
+		= link_to "Create pin", new_pin_path, class: "btn btn-primary"
+	
+	- @pins.each do |pin|
+		%h2= link_to pin.title, pin

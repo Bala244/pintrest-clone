@@ -1,0 +1,8 @@
+%div{ :class => "col-3 mt-5 m-auto" }
+
+	%h1= @pin.title
+	%p= @pin.description
+
+	= link_to "Back", root_path, class: "btn btn-secondary"
+	= link_to "Edit", edit_pin_path, class: "btn btn-primary"
+	= link_to "Delete", pin_path, method: :delete, data: { confirm: "Are You Sure?" }, class: "btn btn-danger"
