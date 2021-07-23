@@ -1,7 +1,12 @@
-%div{ :class => "col-3 mt-5 m-auto" }
+#pins.tranision-enabled
+
+	%div.col-12.mt-5.m-auto.grid{"data-masonry" => "{ \"itemSelector\": \".grid-item\", \"columnWidth\": 0 }"}
 	
-	%div{ :class => "d-flex justify-content-end mb-4" }
-		= link_to "Create pin", new_pin_path, class: "btn btn-primary"
-	
-	- @pins.each do |pin|
-		%h2= link_to pin.title, pin
+		- @pins.each do |pin|
+			.box.panel.panel-default.grid-item
+				= link_to (image_tag pin.image.url), pin
+				.panel-body
+					%h2= link_to pin.title, pin
+					%p.user
+					Submitted by 
+					=pin.user.email

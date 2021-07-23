@@ -1,3 +1,10 @@
 // Place all the styles related to the Pins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+ul{
+	text-decoration: none;
+    list-style: none;
+}
+ul.d-flex li{
+	margin-right: 10px;
+}

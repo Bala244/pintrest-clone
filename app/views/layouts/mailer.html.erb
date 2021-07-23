@@ -9,5 +9,6 @@
 
   <body>
     <%= yield %>
+    <div data-count="<% @pin.get_upvotes.size %>"></div>
   </body>
 </html>

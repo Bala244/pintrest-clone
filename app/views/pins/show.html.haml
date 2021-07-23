@@ -1,10 +1,29 @@
-%div{ :class => "col-3 mt-5 m-auto" }
+#pin_show.row
+	.col-md-6.col-md-offset-2.card.m-auto.mt-5
+		.card-body
+			.panel-heading.pin_image
+				= image_tag @pin.image.url
+				%h1.card-title.mt-4= @pin.title
+				%p.card-text= @pin.description
+			.card-footer.mt-4
+				.d-flex.justify-content-between.align-items-center
+					%p.user.m-0
+						Submitted by
+						= @pin.user.email
 
-	%h1= @pin.title
-	%p= @pin.description
-	Submitted by
-	= @pin.user.email	
-	%br
-	= link_to "Back", root_path, class: "btn btn-secondary"
-	= link_to "Edit", edit_pin_path, class: "btn btn-primary"
-	= link_to "Delete", pin_path, method: :delete, data: { confirm: "Are You Sure?" }, class: "btn btn-danger"
+					.btn-group{"aria-label" => "Basic outlined example", :role => "group", id: "#{@pin.id}"}
+						- if current_user.liked? @pin
+							%span{ class: "dislike_as btn btn-outline-secondary" }
+								%i.bi.bi-heart-fill
+								= @pin.get_upvotes.size
+						- else
+							%span{ class: "like_as btn btn-outline-secondary" }
+								%i.bi.bi-heart
+								= @pin.get_upvotes.size
+						- if current_user.id == @pin.user_id
+							= link_to "Edit", edit_pin_path, class: "btn btn-outline-secondary"
+							= link_to "Delete", pin_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-secondary"
+
+
+
+							

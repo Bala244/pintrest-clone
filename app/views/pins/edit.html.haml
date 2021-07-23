@@ -1,6 +1,6 @@
 %div{ :class => "col-3 mt-5 m-auto" }
 	%h1 Edit form 
-
+	= image_tag @pin.image.url(:medium)
 	= render 'form'
 
 	= link_to "Cancle", pin_path
